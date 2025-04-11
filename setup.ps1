@@ -3,11 +3,7 @@ npm install
 
 # Configurar variável de ambiente para o banco de dados
 @"
-DATABASE_URL="postgresql://pguser:pgpassword@localhost:5435/ecommerce?schema=public"
-JWT_SECRET=74YLbq4%c!wU
-JWT_EXPIRATION_TIME=2h
-JWT_REFRESH_TOKEN_SECRET=7jML9q4-c!s0
-JWT_REFRESH_TOKEN_EXPIRATION_TIME=24h
+DATABASE_URL="postgresql://pguser:pgpassword@localhost:5435/desafio_tecnico?schema=public"
 "@ | Out-File -Encoding utf8 .env
 
 # Aplicar migrações no banco de dados
@@ -19,8 +15,8 @@ npx prisma db push
 # Aplicar generate do Prisma
 npx prisma generate 
 
-#Rodar o seed para gerar o user admin
+#Rodar o seed para gerar os Lotes
 npm run seed
 
-# Rodar o servidor NestJS
+# Rodar o servidor NodeJS
 npm run start:dev

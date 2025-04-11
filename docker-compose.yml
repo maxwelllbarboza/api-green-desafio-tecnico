@@ -6,11 +6,11 @@ services:
     environment:
       POSTGRES_USER: pguser
       POSTGRES_PASSWORD: pgpassword
-      POSTGRES_DB: ecommerce
+      POSTGRES_DB: desafio_tecnico
     ports:
       - '5435:5432'
-    container_name: 'db-postgres-ecommerce'  
+    container_name: 'db-postgres-desafio_tecnico'  
     volumes:
-      - ./banco-de-dados-ecommerce:/var/lib/postgresql/data
+      - ./banco-de-dados-desafio_tecnico:/var/lib/postgresql/data
 volumes:
-  banco-de-dados-ecommerce:
+  banco-de-dados-desafio_tecnico:
