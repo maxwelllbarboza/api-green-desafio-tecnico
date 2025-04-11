@@ -7,7 +7,7 @@ export class BoletoRepository implements IBoletoRepository {
     return Boleto.findAll({ where: filter });
   }
 
-  async bulkCreate(data:  InferCreationAttributes<Boleto>[]) {
+  async bulkCreate(data: InferCreationAttributes<Boleto>[]) {
     await Boleto.bulkCreate(data);
   }
 }

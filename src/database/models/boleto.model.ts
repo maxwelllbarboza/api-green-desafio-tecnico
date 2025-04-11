@@ -24,17 +24,12 @@ Boleto.init(
   {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     nome_sacado: { type: DataTypes.STRING },
-    id_lote: { 
-      type: DataTypes.INTEGER, 
+    id_lote: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      unique: 'unique_boleto_por_lote' 
     },
     valor: { type: DataTypes.DECIMAL },
-    linha_digitavel: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: "unique_boleto_por_lote",
-    },
+    linha_digitavel: { type: DataTypes.STRING },
     ativo: { type: DataTypes.BOOLEAN, defaultValue: true },
     criado_em: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
   },

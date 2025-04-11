@@ -1,7 +1,15 @@
-import { DataTypes, Model, InferAttributes, InferCreationAttributes } from 'sequelize';
-import  sequelize from './index';
+import {
+  DataTypes,
+  Model,
+  InferAttributes,
+  InferCreationAttributes,
+} from "sequelize";
+import sequelize from "./index";
 
-export class Lote extends Model<InferAttributes<Lote>, InferCreationAttributes<Lote>> {
+export class Lote extends Model<
+  InferAttributes<Lote>,
+  InferCreationAttributes<Lote>
+> {
   declare id: number;
   declare nome: string;
   declare ativo: boolean;
@@ -15,5 +23,5 @@ Lote.init(
     ativo: { type: DataTypes.BOOLEAN, defaultValue: true },
     criado_em: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
   },
-  { sequelize, modelName: 'lote', tableName: 'lotes', timestamps: false }
+  { sequelize, modelName: "lote", tableName: "lotes", timestamps: false }
 );
