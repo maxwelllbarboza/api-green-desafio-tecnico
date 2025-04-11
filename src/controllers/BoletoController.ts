@@ -34,7 +34,7 @@ export class BoletoController {
     }
   }
 
-  static async listar(req: Request, res: Response): Promise<void> {
+  static async listarBoletos(req: Request, res: Response): Promise<void> {
     try {
       const { nome, valor_inicial, valor_final, id_lote, relatorio } =
         req.query;

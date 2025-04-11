@@ -15,6 +15,6 @@ router.post(
   upload.single("file"),
   BoletoController.importarPDF
 );
-router.get('/boletos', BoletoController.listar);
+router.get("/boletos", BoletoController.listarBoletos);
 
 export default router;

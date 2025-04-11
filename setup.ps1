@@ -6,17 +6,14 @@ npm install
 DATABASE_URL="postgresql://pguser:pgpassword@localhost:5435/desafio_tecnico?schema=public"
 "@ | Out-File -Encoding utf8 .env
 
+# Aplicar criação do Banco desafio_tecnico
+npx sequelize db:create
+
 # Aplicar migrações no banco de dados
-npx prisma migrate dev --name init
-
-# Aplicar push do Prisma
-npx prisma db push
-
-# Aplicar generate do Prisma
-npx prisma generate 
+npx sequelize db:migrate
 
 #Rodar o seed para gerar os Lotes
 npm run seed
 
 # Rodar o servidor NodeJS
-npm run start:dev
+npm run dev
