@@ -5,6 +5,7 @@
   "main": "src/main.ts",
   "scripts": {
     "dev": "tsnd .",
+    "seed": "npx ts-node src/database/seeders/seed-lotes.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
