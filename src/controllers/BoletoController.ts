@@ -4,34 +4,27 @@ import { PDFService } from "../services/PDFService";
 import { RelatorioService } from "../services/RelatorioService";
 import { Boleto } from "../database/models/boleto.model";
 import { Op } from "sequelize";
+import { BadRequestError } from "../helpers/api-erros";
 
 export class BoletoController {
   static async importarCSV(req: Request, res: Response): Promise<void> {
-    try {
-      const path = req.file?.path;
-      if (!path) {
-        res.status(400).send("CSV não enviado");
-        return;
-      }
-      await CSVService.importarBoletos(path);
-      res.send("Boletos importados com sucesso.");
-    } catch (e) {
-      res.status(500).send(e);
+    const path = req.file?.path;
+    if (!path) {
+      throw new BadRequestError("CSV não enviado");
+      return;
     }
+    await CSVService.importarBoletos(path);
+    res.send("Boletos importados com sucesso.");
   }
 
   static async importarPDF(req: Request, res: Response): Promise<void> {
-    try {
-      const path = req.file?.path;
-      if (!path) {
-        res.status(400).send("PDF não enviado");
-        return;
-      }
-      await PDFService.splitPDF(path);
-      res.send("PDFs divididos com sucesso.");
-    } catch (e) {
-      res.status(500).send(e);
+    const path = req.file?.path;
+    if (!path) {
+      throw new BadRequestError("PDF não enviado");
+      return;
     }
+    await PDFService.splitPDF(path);
+    res.send("PDFs divididos com sucesso.");
   }
 
   static async listarBoletos(req: Request, res: Response): Promise<void> {
